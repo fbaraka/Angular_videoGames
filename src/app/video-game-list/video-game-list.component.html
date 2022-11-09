@@ -1,0 +1,18 @@
+<div *ngFor="let g of TheList.get()">
+    <app-video-game-detail [TheGame]="g" (delete)="doDelete($event)"></app-video-game-detail>
+</div>
+
+<br />
+<br />
+
+<button (click)="showAddForm()">Add a Game</button>
+
+<div *ngIf="addMode">
+    Title:<br />
+    <input type="text" [(ngModel)]="addTitle" /><br />
+    Year of release:<br />
+    <input type="number" [(ngModel)]="addYear" /><br />
+    <input type="checkbox" [(ngModel)]="addConsole" /> Console only<br />
+    <button (click)="addGame()">Add</button>
+    <button (click)="cancelAddForm()">Cancel</button>
+</div>
